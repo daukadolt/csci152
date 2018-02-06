@@ -36,6 +36,7 @@ public class ArrayIntQueue implements IntQueue {
 
     @Override
     public int dequeue() throws Exception {
+        if(size == 0) throw new Exception("The queue is empty!");
         int result = values[front];
 //        values[front] = 0;
         front++;
