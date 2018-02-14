@@ -1,6 +1,9 @@
 package csci152.adt_tests;
 
+import csci152.adt.Queue;
 import csci152.adt.Stack;
+import csci152.impl.ArrayQueue;
+import csci152.impl.ArrayStack;
 import csci152.impl.LinkedList;
 
 public class LinkedListTest {
@@ -14,7 +17,7 @@ public class LinkedListTest {
         try {
             stack.pop();
         } catch (Exception ex) {
-            print(ex);
+            print(ex.getMessage());
         }
 
         /* Pushes 12 items on the stack using a loop, and then prints the stack contents and its size afterwards */
@@ -24,6 +27,7 @@ public class LinkedListTest {
         }
 
         print(stack);
+        print(stack.getSize());
 
         /* Pop several items from the stack, and print its contents and resulting size */
 
@@ -63,9 +67,12 @@ public class LinkedListTest {
         Stack test = new LinkedList<Double>();
 
         for(double i = 2; i<50; i*=2) {
+//            if(i == 8.0) {test.push(9.0); continue;}
             test.push(i);
         }
         print(isIncreasing(test));
+
+        print(test);
 
     }
 
@@ -74,39 +81,58 @@ public class LinkedListTest {
     }
 
     public static boolean isIncreasing(Stack<Double> st) {
-        Stack backup = st;
-        int size = backup.getSize();
-        double temp = 0;
-        double current = 0;
-
-        try {
-            temp = (double) backup.pop();
-        } catch (Exception ex) {
-            print(ex);
-        }
-
-        for(int i = 1; i< size; i++) {
-
-
+        if(st.getSize() == 0 || st.getSize() == 1) return true;
+        else {
+            Boolean result = true;
+            Stack backup = new ArrayStack();
+            int size = st.getSize();
+            double temp = 0;
+            double current = 0;
 
             try {
-                current = (double) backup.pop();
+                temp = st.pop();
+                backup.push(temp);
             } catch (Exception ex) {
                 print(ex);
-                break;
             }
 
-            print("Temp: " + temp + "\nCurrent: " + current);
+            for(int i = 1; i< size; i++) {
 
-            if(current == temp || current*2 == temp)
-            {
-                temp = current;
-                continue;
+
+
+                try {
+                    current = st.pop();
+                } catch (Exception ex) {
+                    print(ex);
+                    break;
+                }
+
+                print("Temp: " + temp + "\nCurrent: " + current);
+
+                backup.push(current);
+
+                if(current == temp || current*2 == temp)
+                {
+                    temp = current;
+                    continue;
+                }
+                else {result = false; break;}
             }
-            else return false;
+
+           while(true) {
+                try {
+//                    print(backup.pop());
+                    st.push((double) backup.pop());
+                } catch (Exception ex) {
+//                    print(ex);
+                    break;
+                }
+           }
+
+//            print(st);
+
+            return result;
         }
-
-        return true;
     }
 
 }

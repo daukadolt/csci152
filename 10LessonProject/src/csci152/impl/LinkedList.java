@@ -50,13 +50,13 @@ public class LinkedList<T> implements Stack<T> {
 
         if(this.size != 0) {
             Node current = top;
-            String contents = top.getValue() + "\n";
+            String contents = top.getValue() + " ";
             for(int i = 1; i<this.size; i++) {
                 current = current.getLink();
-                contents += current.getValue() + "\n";
+                contents += current.getValue() + " ";
             }
 
-            return contents;
+            return "top["+contents+"]bottom";
         } else {
             return "Empty";
         }
