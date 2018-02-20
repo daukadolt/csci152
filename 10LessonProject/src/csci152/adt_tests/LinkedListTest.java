@@ -66,10 +66,19 @@ public class LinkedListTest {
 
         Stack test = new LinkedList<Double>();
 
-        for(double i = 2; i<50; i*=2) {
-//            if(i == 8.0) {test.push(9.0); continue;}
-            test.push(i);
-        }
+
+
+//        for(double i = 2; i<50; i*=2) {
+//            if(i == 8.0) {test.push(3.0); continue;}
+//            test.push(i);
+//        }
+
+        test.push(50.0);
+        test.push(18.0);
+        test.push(19.0);
+
+        print(test);
+
         print(isIncreasing(test));
 
         print(test);
@@ -107,11 +116,11 @@ public class LinkedListTest {
                     break;
                 }
 
-                print("Temp: " + temp + "\nCurrent: " + current);
+//                print("Temp: " + temp + "\nCurrent: " + current);
 
                 backup.push(current);
 
-                if(current == temp || current*2 == temp)
+                if(current == temp || current < temp)
                 {
                     temp = current;
                     continue;
