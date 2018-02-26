@@ -167,7 +167,7 @@ public class Main {
         Deque<Integer> a = new LinkedListDeque<Integer>();
         Deque<Integer> b = new LinkedListDeque<Integer>();
 
-        for(int i = 0; i<5; i++) {
+        for(int i = 0; i<4; i++) {
             a.pushToBack(i);
         }
 
