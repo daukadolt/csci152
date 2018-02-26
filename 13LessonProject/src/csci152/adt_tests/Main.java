@@ -175,6 +175,8 @@ public class Main {
             b.pushToBack(i);
         }
 
+        print(mergeSort(merge(a,b)));
+
         /*  */
 
 
@@ -253,16 +255,27 @@ public class Main {
     int size = deq.getSize();
 
     if(size == 1) {
+       return deq;
+    } else if (size == 2) {
+        print("2: " + deq);
+        int a = 0, b = 0;
         try {
-            result.pushToFront(deq.popFromFront());
+            a = deq.popFromFront();
+            b = deq.popFromFront();
         } catch (Exception ex) {
             print(ex.getMessage());
         }
-    } else if (size == 2) {
-        print(deq);
+        if (a>b) {
+            result.pushToBack(b);
+            result.pushToBack(a);
+        } else {
+            result.pushToBack(a);
+            result.pushToBack(b);
+        }
     }
     else {
         int a_size = size/2, b_size = size - a_size;
+        print("A: " + a_size + " B: " + b_size);
         if(a_size > b_size) {
             int temp = a_size;
             a_size = b_size;
