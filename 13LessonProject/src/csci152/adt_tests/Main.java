@@ -3,6 +3,8 @@ package csci152.adt_tests;
 import csci152.impl.LinkedListDeque;
 import csci152.adt.Deque;
 
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -167,7 +169,9 @@ public class Main {
         Deque<Integer> a = new LinkedListDeque<Integer>();
         Deque<Integer> b = new LinkedListDeque<Integer>();
 
-        for(int i = 0; i<4; i++) {
+        Random rand = new Random();
+
+        for(int i = 0; i<6; i++) {
             a.pushToBack(i);
         }
 
@@ -257,7 +261,7 @@ public class Main {
     if(size == 1) {
        return deq;
     } else if (size == 2) {
-        print("2: " + deq);
+//        print("2: " + deq);
         int a = 0, b = 0;
         try {
             a = deq.popFromFront();
@@ -275,7 +279,7 @@ public class Main {
     }
     else {
         int a_size = size/2, b_size = size - a_size;
-        print("A: " + a_size + " B: " + b_size);
+//        print("A: " + a_size + " B: " + b_size);
         if(a_size > b_size) {
             int temp = a_size;
             a_size = b_size;
@@ -303,7 +307,11 @@ public class Main {
         a = mergeSort(a);
         b = mergeSort(b);
 
+//        print("A:" + a);
+//        print("B: " + b);
+//
         result = merge(a, b);
+//        result = b;
     }
 
 
