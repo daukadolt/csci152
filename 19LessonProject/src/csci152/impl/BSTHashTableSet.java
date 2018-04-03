@@ -21,7 +21,6 @@ public class BSTHashTableSet<T extends Comparable> implements Set<T>, HashTableS
     public void add(T value) {
         int hash = value.hashCode(), rem = hash%k;
         if(buckets[rem] == null){
-//            System.out.println("rem:" + rem);                      Debugging
             buckets[rem] = new BSTSet<>();
         }
         size++;
@@ -94,12 +93,12 @@ public class BSTHashTableSet<T extends Comparable> implements Set<T>, HashTableS
 
     @Override
     public double getBucketSizeStandardDev() {
-        int sum = getSum();
-//        System.out.println("Sum: " + sum);
-//        System.out.println("Size: " + size);
-        double mean = sum/this.size, stdev = 0, a = getA(mean);
-//        System.out.println("Mean: " + mean);
-        return sqrt(a/(this.size));
+        double sum = getSum();
+        System.out.println("Sum: " + sum);
+        System.out.println("Size: " + size);
+        double mean = sum/(double)this.size, stdev = 0, a = getA(mean);
+        System.out.println("Mean: " + mean);
+        return sqrt(a/((double)this.size));
     }
 
     @SuppressWarnings("Duplicates")
@@ -172,6 +171,6 @@ public class BSTHashTableSet<T extends Comparable> implements Set<T>, HashTableS
 
     @Override
     public String bucketsToString() {
-        return null;
+        return toString();
     }
 }

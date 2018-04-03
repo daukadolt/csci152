@@ -2,7 +2,7 @@ package csci152.adt_tests;
 
 public class Student implements Comparable<Student> {
 
-    private int ID;
+    private Integer ID;
     private String name;
 
     public Student(String name, int ID) {
@@ -11,7 +11,7 @@ public class Student implements Comparable<Student> {
     }
 
     public int compareTo(Student s) {
-        return this.name.compareTo(s.getName());
+        return this.ID.compareTo(s.getID());
     }
 
     public int getID() {

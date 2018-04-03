@@ -7,26 +7,32 @@ import csci152.impl.LLQHashTableSet;
 public class BSTHashTableTest {
     public static void main(String[] args) {
 
-        Set<Student> test = new BSTHashTableSet<>(100);
+        Student asd;
+        Set<Student> test = new BSTHashTableSet<>(10);
         for(int i = 100; i<300; i++) {
-            test.add(new Student("Bob", i));
+            asd = new Student("Bob", i);
+            test.add(asd);
         }
 
-        print(((BSTHashTableSet<Student>) test).getLoadFactor());
+            print(test);
+
         print(((BSTHashTableSet<Student>) test).getBucketSizeStandardDev());
+        print(((BSTHashTableSet<Student>) test).getLoadFactor());
+
 
         /* <----- ~ -----> */
 
-        Set<Student> test2 = new BSTHashTableSet<>(10);
+        Set<Student> test2 = new BSTHashTableSet<>(100);
 
         for(int i = 100; i<300; i++) {
             test2.add(new Student("Bob", i));
         }
 
+        print(((BSTHashTableSet<Student>) test2).getBucketSizeStandardDev());
         print(((BSTHashTableSet<Student>) test2).getLoadFactor());
-        print(((BSTHashTableSet<Student>) test).getBucketSizeStandardDev());
-
         /* <----- ~ -----> */
+
+
 
         /* <----- ~ -----> */
         /* <----- ~ -----> */

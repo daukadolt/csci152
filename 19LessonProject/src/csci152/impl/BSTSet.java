@@ -1,6 +1,8 @@
 package csci152.impl;
 
+import com.sun.jdi.Value;
 import csci152.adt.Set;
+import jdk.nashorn.api.tree.Tree;
 
 public class BSTSet<T extends Comparable> implements Set<T> {
 
@@ -10,72 +12,75 @@ public class BSTSet<T extends Comparable> implements Set<T> {
     @Override
     @SuppressWarnings("Duplicates")
     public void add(T value) {
-//        System.out.println("Received: " + value);
-        if(size == 0) root = new TreeNode<>(value);
-        else {
-//            System.out.println("Else chosen");
-            TreeNode<T> prevNode = root;
-            TreeNode<T> theNode = root;
-            boolean lessthan = false;
+
+        if(root == null) {
+            root = new TreeNode(value);
+            size++;
+        }
+        if(value.compareTo(root.getValue())<0) {
+
+            TreeNode current = root;
+            TreeNode prev = root;
+            boolean smaller = true;
 
             while(true) {
-//                System.out.println("Loop iteration");
-                if(theNode == null) {
-//                    System.out.println("The node == null");
-                    if(lessthan) prevNode.setLeft(new TreeNode<>(value));
-                    else prevNode.setRight(new TreeNode<>(value));
+                if(current == null) {
+                    if(smaller) prev.setLeft(new TreeNode(value));
+                    else prev.setRight(new TreeNode(value));
+                    size++;
                     break;
                 }
-                else if (value.compareTo(theNode.getValue()) == 0) {
-//                    System.out.println("CompareTo == 0");
-                    return;
+                prev = current;
+                if(value.compareTo(current.getValue())<0) {
+                    current = current.getLeft();
+                    smaller = true;
+                } else if(value.compareTo(current.getValue())>0) {
+                    current = current.getRight();
+                    smaller = false;
                 }
-                else {
-//                    System.out.println("Second else chosen");
-//                    System.out.println(value.compareTo(theNode.getValue()));
-                    prevNode = theNode;
-                    if(value.compareTo(theNode.getValue()) < 0) {
-//                        System.out.println("CompareTo < 0");
-                        lessthan = true;
-                        theNode = theNode.getLeft();
-                    }
-                    else {
-//                        System.out.println("CompareTo > 0");
-                        theNode = theNode.getRight();
-                        lessthan = false;
-                    }
-                }
+                else if(value.compareTo(current.getValue()) == 0) break;
             }
+
+
+        } else if(value.compareTo(root.getValue())>0) {
+
+            TreeNode current = root;
+            TreeNode prev = root;
+            boolean smaller = false;
+
+            while(true) {
+                if(current == null) {
+                    if(smaller) prev.setLeft(new TreeNode(value));
+                    else prev.setRight(new TreeNode(value));
+                    size++;
+                    break;
+                }
+                prev = current;
+                if(value.compareTo(current.getValue())<0) {
+                    current = current.getLeft();
+                    smaller = true;
+                } else if(value.compareTo(current.getValue())>0) {
+                    current = current.getRight();
+                    smaller = false;
+                }
+                else if(value.compareTo(current.getValue()) == 0) break;
+            }
+
         }
-        size++;
+
     }
 
 
     @Override
     @SuppressWarnings("Duplicates")
     public boolean contains(T value) {
-        TreeNode<T> theNode = root;
-        boolean lessthan = false, res = true;
-
+        TreeNode current = root;
+        boolean res = false;
         while(true) {
-            if(theNode == null) {
-                res = false;
-                break;
-            }
-            else if (value.compareTo(theNode.getValue()) == 0) {
-                res = true;
-                break;
-            }
-            else {
-                if(value.compareTo(theNode.getValue()) < 0) {
-                    lessthan = true;
-                    theNode = theNode.getLeft();
-                }
-                else {
-                    theNode = theNode.getRight();
-                    lessthan = false;
-                }
-            }
+            if(current == null) break;
+            else if(value.compareTo(current.getValue())<0) current = current.getLeft();
+            else if(value.compareTo(current.getValue())>0) current = current.getRight();
+            else if(value.compareTo(current.getValue())==0) {res = true; break;}
         }
         return res;
     }
@@ -83,74 +88,72 @@ public class BSTSet<T extends Comparable> implements Set<T> {
     @Override
     @SuppressWarnings("Duplicates")
     public boolean remove(T value) {
-//        System.out.println("Reached?");
-        TreeNode<T> theNode = root;
-        TreeNode<T> prevNode = root;
-        boolean lessthan = false, res = false;
+        TreeNode previous = root;
+        TreeNode current = root;
+        boolean res = false, smaller = true;
+//        System.out.println("Val before while:" + value);
         while(true) {
-//            System.out.println("Reached?");
-            if(theNode == null) {
-//                System.out.println("Reached?");
-                res = false;
+//            System.out.println("iterating");
+            if(current == null) break;
+            if(value.compareTo(current.getValue())==0) {
+                if(previous.getValue() != current.getValue()) {
+                    if(current.getLeft() == null && current.getRight() == null) {
+                        if(smaller) previous.setLeft(null);
+                        else previous.setRight(null);
+                    } else if(current.getRight() == null && current.getLeft() != null) {
+//                        System.out.println("Val:" + value);
+//                        System.out.println("Prev:" + previous);
+                        if(smaller) {
+//                            System.out.println("Setting smaller" + current.getLeft());
+                            previous.setLeft(current.getLeft());
+                        }
+                        else {
+//                            System.out.println("Setting larger");
+                            previous.setRight(current.getLeft());
+                        }
+                    } else if(current.getRight() != null && current.getLeft() == null) {
+                        if(smaller) previous.setLeft(current.getRight());
+                        else previous.setRight(current.getRight());
+                    } else if(current.getRight() != null && current.getLeft() != null) {
+//                        System.out.println("Val:" + value);
+                        current.setValue(minVal(current));
+                    }
+                } else {
+                    if(current.getLeft() == null && current.getRight() == null) root = null;
+                    else if(current.getLeft() == null && current.getRight() != null) root = root.getRight();
+                    else if(current.getLeft() != null && current.getRight() == null) root = root.getLeft();
+                    else if(current.getRight() != null && current.getLeft() != null) current.setValue(minVal(current));
+                }
+                res = !res;
+                size--;
                 break;
             }
-            else if (value.compareTo(theNode.getValue()) == 0) {
-//                System.out.println("Reached?");
-                res = true;
-                /* <------- Removes the val -------> */
-                if (theNode.getRight() == null && theNode.getLeft() == null) {
-                    if(theNode.getValue().compareTo(prevNode.getValue()) > 0) {
-                        prevNode.setRight(null);
-                    } else {
-                        prevNode.setLeft(null);
-                    }
-                    break;
-
-                }
-                else if(theNode.getLeft() != null) {
-                    System.out.println("LEFT. Replacing " + theNode.getValue() + " by " + theNode.getLeft().getValue());
-                    TreeNode<T> holder = theNode;
-                    while(true) {
-//                        System.out.println("Val: " + theNode.getValue() );
-                        if(theNode.getLeft() == null) {
-                            holder.setLeft(null);
-                            break;
-                        }
-                        theNode.setValue(theNode.getLeft().getValue());
-                        holder = theNode;
-                        theNode = theNode.getLeft();
-                    }
-                } else if(theNode.getRight() != null) {
-                    System.out.println("RIGHT. Replacing " + theNode.getValue() + " by " + theNode.getRight().getValue());
-                    TreeNode<T> holder = theNode;
-                    while(true) {
-                        if(theNode.getRight() == null) {
-                            holder.setRight(null);
-                            break;
-                        }
-                        theNode.setValue(theNode.getRight().getValue());
-                        holder = theNode;
-                        theNode = theNode.getRight();
-                    }
-                }
-
-                /* <------- Removes the val -------> */
-                break;
+            previous = current;
+            if(value.compareTo(current.getValue())<0) {
+                current = current.getLeft();
+                smaller = true;
             }
-            else {
-                prevNode = theNode;
-                if(value.compareTo(theNode.getValue()) < 0) {
-                    lessthan = true;
-                    theNode = theNode.getLeft();
-                }
-                else {
-                    theNode = theNode.getRight();
-                    lessthan = false;
-                }
+            else if(value.compareTo(current.getValue())>0) {
+                current = current.getRight();
+                smaller = false;
             }
         }
-        if(res) size--;
         return res;
+    }
+
+    private T minVal(TreeNode previous) {
+//        System.out.println("Minval");
+        TreeNode theNode = previous;
+        TreeNode current = previous.getRight();
+        T val =(T) current.getValue();
+        while(current.getLeft() != null) {
+            previous = current;
+            current = current.getLeft();
+            val = (T) current.getValue();
+        }
+        remove(val);
+        theNode.setValue(val);
+        return val;
     }
 
     @Override
