@@ -137,9 +137,10 @@ public class LLQHashTableMap<K extends Comparable, V> implements Map<K, V>, Hash
     }
 
     @Override
+    @SuppressWarnings("Duplicates")
     public double getBucketSizeStandardDev() {
         double result = 0, mean = getLoadFactor();
-        System.out.println("Mean = " + mean);
+//        System.out.println("Mean = " + mean);
         for(int i = 0; i<k; i++) {
             try {
                 result += (getBucketSize(i) - mean)*(getBucketSize(i) - mean);

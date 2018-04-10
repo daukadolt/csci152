@@ -12,32 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LLQHashTableMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/csci152/impl/LLQHashTableMap.java">
+      <file leaf-file-name="BSTHashTableMapTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/csci152/adt_tests/BSTHashTableMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="141" column="45" selection-start-line="141" selection-start-column="45" selection-end-line="141" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#889#920#0" expanded="true" />
-                <element signature="e#2794#2795#0" expanded="true" />
-                <element signature="e#2818#2819#0" expanded="true" />
-                <element signature="e#3469#3470#0" expanded="true" />
-                <element signature="e#3493#3494#0" expanded="true" />
-                <element signature="e#3788#3789#0" expanded="true" />
-                <element signature="e#3822#3823#0" expanded="true" />
-                <element signature="e#3951#3952#0" expanded="true" />
-                <element signature="e#3978#3979#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="81">
+              <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LLQHashTableMapTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LLQHashTableMapTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/csci152/adt_tests/LLQHashTableMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="254">
+              <caret line="83" column="47" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -56,6 +44,8 @@
       <find>Found</find>
       <find>Found The</find>
       <find>search</find>
+      <find>inOrder</find>
+      <find>b</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -64,8 +54,10 @@
         <option value="$PROJECT_DIR$/src/csci152/impl/BSTSet.java" />
         <option value="$PROJECT_DIR$/src/csci152/impl/BSTMap.java" />
         <option value="$PROJECT_DIR$/src/csci152/adt_tests/BSTMapTest.java" />
-        <option value="$PROJECT_DIR$/src/csci152/impl/LLQHashTableMap.java" />
         <option value="$PROJECT_DIR$/src/csci152/adt_tests/LLQHashTableMapTest.java" />
+        <option value="$PROJECT_DIR$/src/csci152/impl/BSTHashTableMap.java" />
+        <option value="$PROJECT_DIR$/src/csci152/impl/LLQHashTableMap.java" />
+        <option value="$PROJECT_DIR$/src/csci152/adt_tests/BSTHashTableMapTest.java" />
       </list>
     </option>
   </component>
@@ -157,7 +149,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LLQHashTableMapTest">
+  <component name="RunManager" selected="Application.BSTHashTableMapTest">
+    <configuration name="BSTHashTableMapTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="csci152.adt_tests.BSTHashTableMapTest" />
+      <module name="22LessonProject" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="csci152.adt_tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
     <configuration name="BSTMapTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="csci152.adt_tests.BSTMapTest" />
       <module name="22LessonProject" />
@@ -224,9 +227,11 @@
     <list>
       <item itemvalue="Application.BSTMapTest" />
       <item itemvalue="Application.LLQHashTableMapTest" />
+      <item itemvalue="Application.BSTHashTableMapTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BSTHashTableMapTest" />
         <item itemvalue="Application.LLQHashTableMapTest" />
         <item itemvalue="Application.BSTMapTest" />
       </list>
@@ -242,12 +247,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523360189609</updated>
-      <workItem from="1523360191205" duration="9531000" />
+      <workItem from="1523360191205" duration="14804000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9531000" />
+    <option name="totallyTimeSpent" value="14804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="42" width="1260" height="669" extended-state="0" />
@@ -300,13 +305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/csci152/impl/BSTSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="122" column="119" selection-start-line="119" selection-start-column="20" selection-end-line="122" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/csci152/impl/LLQueueMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -314,13 +312,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/csci152/impl/BSTMap.java">
+    <entry file="file://$PROJECT_DIR$/src/csci152/impl/LLQHashTableSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="2085">
+          <caret line="145" column="24" lean-forward="true" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/csci152/impl/BinaryTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-341">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -333,41 +335,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csci152/adt_tests/BSTMapTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="81" column="5" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="81" selection-end-column="5" />
+        <state relative-caret-position="129">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/csci152/impl/LLQHashTableSet.java">
+    <entry file="file://$PROJECT_DIR$/src/csci152/impl/BSTSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
-          <caret line="145" column="24" lean-forward="true" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csci152/impl/LLQHashTableMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="141" column="45" selection-start-line="141" selection-start-column="45" selection-end-line="141" selection-end-column="45" />
+        <state relative-caret-position="150">
+          <caret line="139" column="35" selection-start-line="139" selection-start-column="35" selection-end-line="139" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#889#920#0" expanded="true" />
-            <element signature="e#2794#2795#0" expanded="true" />
-            <element signature="e#2818#2819#0" expanded="true" />
-            <element signature="e#3469#3470#0" expanded="true" />
-            <element signature="e#3493#3494#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#3822#3823#0" expanded="true" />
-            <element signature="e#3951#3952#0" expanded="true" />
-            <element signature="e#3978#3979#0" expanded="true" />
+            <element signature="e#3873#3904#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/csci152/impl/BSTHashTableMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="254" column="17" lean-forward="true" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1927#1958#0" expanded="true" />
+            <element signature="e#3062#3093#0" expanded="true" />
+            <element signature="e#6493#6524#0" expanded="true" />
+            <element signature="e#7131#7132#0" expanded="true" />
+            <element signature="e#7158#7159#0" expanded="true" />
+            <element signature="e#7594#7625#0" expanded="true" />
+            <element signature="e#8256#8257#0" expanded="true" />
+            <element signature="e#8280#8281#0" expanded="true" />
+            <element signature="e#8863#8864#0" expanded="true" />
+            <element signature="e#8912#8913#0" expanded="true" />
+            <element signature="e#8933#8964#0" expanded="true" />
+            <element signature="e#8263#8264#0" expanded="true" />
+            <element signature="e#8290#8291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/csci152/impl/BSTMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="187" column="16" lean-forward="true" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csci152/adt_tests/LLQHashTableMapTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="254">
+          <caret line="83" column="47" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/csci152/adt_tests/BSTHashTableMapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
         </state>
       </provider>
     </entry>
