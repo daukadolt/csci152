@@ -33,20 +33,42 @@ public class LLQueueMapTest {
 
         /* 3 */
 
-        test.remove(6);
+        print("removing 5");
+        test.remove(5);
 
         print("Size:" + test.getSize());
         print(test);
 
         /* 4 */
 
-        test.define(6, 36);
-        test.define(6, 24);
+        test.remove(6);
 
         print("Size:" + test.getSize());
         print(test);
 
         /* 5 */
+
+        test.define(6, 36);
+
+
+        print("Size:" + test.getSize());
+        print(test);
+
+        test.define(6, 24);
+
+        print("Size:" + test.getSize());
+        print(test);
+
+        /* 6 */
+
+        test.define(7,49);
+        test.define(8,64);
+        test.define(9,81);
+
+        print("Size:" + test.getSize());
+        print(test);
+
+        /* 7 */
 
         try {
             test.removeAny();
@@ -58,14 +80,14 @@ public class LLQueueMapTest {
         print("Size:" + test.getSize());
         print(test);
 
-        /* 6 */
+        /* 8 */
 
         test.clear();
 
         print("Size:" + test.getSize());
         print(test);
 
-        /* 7 */
+        /* 9 */
 
         test.define(6, 720);
         test.define(7, 5040);
