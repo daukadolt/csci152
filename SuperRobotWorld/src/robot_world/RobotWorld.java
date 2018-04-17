@@ -129,4 +129,24 @@ public class RobotWorld {
     	}
     	System.out.println();
     }
+
+    public char[][] getWorldMap() {
+        return worldMap;
+    }
+
+    public int getRobotRow() {
+        return robotRow;
+    }
+
+    public int getRobotColumn() {
+        return robotColumn;
+    }
+
+    public void setRobotRow(int robotRow) {
+        this.robotRow = robotRow;
+    }
+
+    public void setRobotColumn(int robotColumn) {
+        this.robotColumn = robotColumn;
+    }
 }

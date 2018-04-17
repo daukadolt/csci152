@@ -8,7 +8,7 @@ public class TowerOfHanoiSolution {
 
     public static void main(String[] args){
 
-        solveTower(20);
+        solveTower(10);
 
     }
 
